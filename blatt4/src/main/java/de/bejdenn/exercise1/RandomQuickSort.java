@@ -24,8 +24,13 @@ public class RandomQuickSort extends QuickSort {
     }
 
     private int preparePartition(int[] input, int first, int last, int part) {
-        int pivotIndex = RANDOM.nextInt(first, last + 1);
+        // Da man anstelle des ersten Elements ein zufälliges Element für das Pivot
+        // wählt, ist die Wahrscheinlichkeit etwas höher, bessere Subpartitionen zu
+        // mischen. Der Worst-Case von n^2 wird kaum mehr vorkommen, aber an der
+        // Average-Case und Best-Case-Laufzeit wird sich auch nicht viel ändern, weil
+        // der Algorithmus abgesehen davon nicht verändert wurde.
 
+        int pivotIndex = RANDOM.nextInt(first, last + 1);
         int pivot = input[pivotIndex];
 
         swap(input, pivotIndex, first);

@@ -16,11 +16,14 @@ public class IterativeMergeSort extends MergeSort {
     public void sort(int[] input) {
         List<List<Integer>> groups = new ArrayList<>();
 
+        // Laufzeit -> n
         for (int i = 0; i < input.length; i++) {
             List<Integer> list = new ArrayList<>();
             list.add(input[i]);
             groups.add(list);
         }
+
+        // Laufzeit -> n log n
         while (groups.size() > 1) {
             Iterator<List<Integer>> iterator = groups.iterator();
             var left = iterator.next();
@@ -32,12 +35,17 @@ public class IterativeMergeSort extends MergeSort {
             groups.add(merge(left, right));
         }
 
+        // Copy list values manually to array to preserve int data type instead of
+        // Integer
         List<Integer> last = groups.iterator().next();
         for (int i = 0; i < input.length; i++) {
             input[i] = last.get(i);
         }
+
+        // Ergebnis: IterativeMergeSort hat wie sein rekursives Pendant O(nlogn)
     }
 
+    // Laufzeit -> n
     private List<Integer> merge(List<Integer> left, List<Integer> right) {
         List<Integer> temp = new ArrayList<>();
 

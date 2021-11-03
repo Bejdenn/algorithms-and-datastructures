@@ -25,7 +25,7 @@ public class RecursiveInsertionSort extends InsertionSort {
 
         input[i + 1] = key;
 
-        sortInternal(input, ++keyIndex);
+        sortInternal(input, keyIndex + 1);
     }
 
     private int move(int[] input, int sourceIndex, int key) {

@@ -1,12 +1,11 @@
 package de.bejdenn.exercise3;
 
 import de.bejdenn.algorithm.benchmark.AlgorithmBenchmark;
-import de.bejdenn.algorithm.sorting.advanced.HeapSort;
 
 public class App {
 
     public static void main(String[] args) {
-        var benchmark = new AlgorithmBenchmark(new int[] { 34, 45, 12, 34, 23, 18, 38, 17, 43, 51 });
-        benchmark.start(new HeapSort());
+        var benchmark = new AlgorithmBenchmark(new int[] { -5, 13, -32, 7, -3, 17, 23, 12, -35, 19 });
+        benchmark.start(new VisualizedMergeSort());
     }
 }
